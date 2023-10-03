@@ -13,7 +13,7 @@ function start_ws() {
 }
 
 function stop_ws() {
-  kill -9 "$(cat "${SCRIPT_DIR}"/web.pid)" 2> /dev/null
+  [[ -f "${SCRIPT_DIR}/web.pid" ]] && kill -9 "$(cat "${SCRIPT_DIR}"/web.pid)" 2> /dev/null
   # shellcheck disable=SC2009
   # cant use pgrep as it is python not gunicorn
   running=$(ps auwwwx | grep -i gunicorn | grep -v grep)
