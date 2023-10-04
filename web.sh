@@ -9,7 +9,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 . "${SCRIPT_DIR}"/venv/bin/activate
 
 function start_ws() {
-  gunicorn --bind 0.0.0.0:9090 wsgi:app -D -p "${SCRIPT_DIR}"/web.pid 2> /dev/null
+  gunicorn --chdir ${SCRIPT_DIR} --bind 0.0.0.0:9090 --pid "${SCRIPT_DIR}"/web.pid --daemon wsgi:app 2> /dev/null
 }
 
 function stop_ws() {
