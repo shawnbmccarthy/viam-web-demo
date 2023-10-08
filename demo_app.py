@@ -1,4 +1,7 @@
-from flask import Flask
+from app_cfg import VERSION
+from datetime import datetime as dt
+from flask import Flask, jsonify
+
 app = Flask(
     __name__,
     static_url_path='',
@@ -9,7 +12,10 @@ app = Flask(
 
 @app.route('/version')
 def version():
-    return "v0.0.1"
+    return jsonify(
+        version=VERSION,
+        deployed_at=dt.now()
+    )
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ module registry.
 ## install 
 
 ```shell
-install.sh
+Make INSTALL_DIR=/path/to/be/installed VERSION=x.x.x install
 ```
 
 ## run
