@@ -3,6 +3,7 @@
 #
 # super simple script to start & stop server
 # no error checking, hardcoded variables, etc.
+# TODO: create variable for port
 #
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
